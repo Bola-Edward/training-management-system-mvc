@@ -1,0 +1,50 @@
+﻿@model TrainingManagementSystem.ViewModels.SessionViewModel
+@{
+    ViewData["Title"] = "Create Session";
+}
+
+<div class="container mt-4">
+    <div class="card shadow-lg rounded-3">
+        <div class="card-header bg-primary text-white text-center">
+            <h3 class="mb-0">Create New Session</h3>
+        </div>
+        <div class="card-body">
+            <form asp-action="Create" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                <!-- Course Dropdown -->
+                <div class="mb-3">
+                    <label asp-for="CourseId" class="form-label fw-bold"></label>
+                    <select asp-for="CourseId" asp-items="ViewBag.CourseId" class="form-select">
+                        <option value="">-- Select Course --</option>
+                    </select>
+                    <span asp-validation-for="CourseId" class="text-danger"></span>
+                </div>
+
+                <!-- Start Date -->
+                <div class="mb-3">
+                    <label asp-for="StartDate" class="form-label fw-bold"></label>
+                    <input asp-for="StartDate" class="form-control" type="date" />
+                    <span asp-validation-for="StartDate" class="text-danger"></span>
+                </div>
+
+                <!-- End Date -->
+                <div class="mb-3">
+                    <label asp-for="EndDate" class="form-label fw-bold"></label>
+                    <input asp-for="EndDate" class="form-control" type="date" />
+                    <span asp-validation-for="EndDate" class="text-danger"></span>
+                </div>
+
+                <!-- Buttons -->
+                <div class="d-flex justify-content-between">
+                    <a asp-action="Index" class="btn btn-outline-secondary px-4">Back to List</a>
+                    <button type="submit" class="btn btn-success px-4">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

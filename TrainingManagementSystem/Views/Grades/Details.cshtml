@@ -1,0 +1,34 @@
+﻿@model TrainingManagementSystem.Models.Grade
+@{
+    ViewData["Title"] = "Grade Details";
+}
+
+<div class="card shadow-sm mt-4">
+    <div class="card-header bg-primary text-white">
+        <h3 class="mb-0">Grade Details</h3>
+    </div>
+    <div class="card-body">
+        <dl class="row mb-3">
+            <dt class="col-sm-3 fw-bold">Trainee</dt>
+            <dd class="col-sm-9">@Model.User?.UserName</dd>
+
+            <dt class="col-sm-3 fw-bold">Session</dt>
+            <dd class="col-sm-9">@Model.Session?.SessionId</dd>
+
+            <dt class="col-sm-3 fw-bold">Course</dt>
+            <dd class="col-sm-9">@Model.Session?.Course?.CourseName</dd>
+
+            <dt class="col-sm-3 fw-bold">Grade Value</dt>
+            <dd class="col-sm-9">@Model.Value</dd>
+        </dl>
+
+        <div class="d-flex gap-2 justify-content-start">
+            <a asp-action="Index" class="btn btn-secondary">
+                Back
+            </a>
+            <a asp-action="Edit" asp-route-id="@Model.GradeId" class="btn btn-primary">
+                Edit
+            </a>
+        </div>
+    </div>
+</div>

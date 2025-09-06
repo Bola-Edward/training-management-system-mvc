@@ -1,0 +1,50 @@
+﻿@model TrainingManagementSystem.ViewModels.GradeViewModel
+@{
+    ViewData["Title"] = "Edit Grade";
+}
+
+<div class="container mt-4">
+    <div class="card shadow-lg rounded-3">
+        <div class="card-header bg-warning text-white text-center">
+            <h3 class="mb-0">Edit Grade</h3>
+        </div>
+
+        <div class="card-body">
+            <form asp-action="Edit" method="post">
+                @Html.AntiForgeryToken()
+
+                <!-- Grade Value -->
+                <div class="mb-3">
+                    <label asp-for="Value" class="form-label"></label>
+                    <input asp-for="Value" class="form-control" type="number" />
+                    <span asp-validation-for="Value" class="text-danger"></span>
+                </div>
+
+                <!-- Trainee -->
+                <div class="mb-3">
+                    <label asp-for="TraineeId" class="form-label"></label>
+                    <select asp-for="TraineeId" class="form-select" asp-items="ViewBag.TraineeId"></select>
+                    <span asp-validation-for="TraineeId" class="text-danger"></span>
+                </div>
+
+                <!-- Session -->
+                <div class="mb-3">
+                    <label asp-for="SessionId" class="form-label"></label>
+                    <select asp-for="SessionId" class="form-select" asp-items="ViewBag.SessionId"></select>
+                    <span asp-validation-for="SessionId" class="text-danger"></span>
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <a asp-action="Index" class="btn btn-outline-secondary px-4">Cancel</a>
+                    <button type="submit" class="btn btn-warning px-4">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

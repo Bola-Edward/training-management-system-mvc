@@ -1,0 +1,56 @@
+﻿@model TrainingManagementSystem.ViewModels.GradeViewModel
+@{
+    ViewData["Title"] = "Create Grade";
+}
+
+<div class="container mt-4">
+    <div class="card shadow-lg rounded-3">
+        <!-- Header -->
+        <div class="card-header bg-primary text-white text-center">
+            <h3 class="mb-0">Create New Grade</h3>
+        </div>
+
+        <!-- Body -->
+        <div class="card-body">
+            <form asp-action="Create" asp-controller="Grades" method="post">
+                @Html.AntiForgeryToken()
+
+                <!-- Grade Value -->
+                <div class="mb-3">
+                    <label asp-for="Value" class="form-label"></label>
+                    <input asp-for="Value" class="form-control" type="number" placeholder="Enter grade value (0 - 100)" />
+                    <span asp-validation-for="Value" class="text-danger"></span>
+                </div>
+
+                <!-- Trainee -->
+                <div class="mb-3">
+                    <select asp-for="TraineeId" class="form-select" asp-items="ViewBag.TraineeId">
+                        <option value="">-- Select Trainee --</option>
+                    </select>
+                    <span asp-validation-for="TraineeId" class="text-danger"></span>
+                </div>
+
+                <!-- Session -->
+                <div class="mb-3">
+                    <label asp-for="SessionId" class="form-label"></label>
+                    <select asp-for="SessionId" class="form-select" asp-items="ViewBag.SessionId">
+                        <option value="">-- Select Session --</option>
+                    </select>
+                    <span asp-validation-for="SessionId" class="text-danger"></span>
+                </div>
+
+                <!-- Actions -->
+                <div class="d-flex justify-content-between">
+                    <a asp-action="Index" class="btn btn-outline-secondary px-4">Back to List</a>
+                    <button type="submit" class="btn btn-success px-4">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
