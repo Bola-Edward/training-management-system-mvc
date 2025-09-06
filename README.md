@@ -8,7 +8,7 @@ It follows the **Model-View-Controller (MVC)** pattern, ensuring a structured, m
 The application allows users to:  
 - Manage courses and assign instructors.  
 - Schedule and track training sessions.  
-- Create and manage user accounts with roles (Admin, Instructor, Trainee).  
+- Create and manage user accounts.  
 - Record and monitor trainee grades.  
 
 ---
@@ -18,7 +18,7 @@ The application allows users to:
 - **Home Page**: Provides an overview of system functionalities with navigation to Courses, Sessions, Users, and Grades.  
 - **Course Management**: Create, view, update, and delete courses with category and instructor assignment.  
 - **Session Management**: Track and manage training sessions with start/end dates linked to specific courses.  
-- **User Management**: Administer user accounts, including role-based access (Admin, Instructor, Trainee).  
+- **User Management**: Manage user accounts (with roles such as Admin, Instructor, Trainee for demonstration purposes). 
 - **Grades Management**: Record and manage trainee performance linked to sessions and courses.  
 
 ---
